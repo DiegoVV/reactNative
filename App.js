@@ -78,22 +78,30 @@ class App extends Component{
     return (
       <View style={styles.container}>
         <Text style={styles.title}>Rock, Paper, Scissors</Text>
-        <Button
-          onPress={() => this.selection(0)}
-          title="Rock"
-          color="#505050"
-        />
-        <Button
-          onPress={() => this.selection(1)}
-          title="Paper"
-          color="#505050"
-        />
-        <Button
-          onPress={() => this.selection(2)}
-          title="Scissors"
-          color="#505050"
-        />
-        {this.state.content ? null : <Text style={styles.title}>{this.state.textValue}</Text>}
+        <View style={styles.buttonRow}>
+          <View style={styles.margin10}>
+            <Button
+              onPress={() => this.selection(0)}
+              title="Rock"
+              color="#505050"
+            />
+          </View>
+          <View style={styles.margin10}>
+            <Button
+              onPress={() => this.selection(1)}
+              title="Paper"
+              color="#505050"
+            />            
+          </View>
+          <View style={styles.margin10}>
+            <Button
+              onPress={() => this.selection(2)}
+              title="Scissors"
+              color="#505050"
+            />            
+          </View>
+        </View>
+        {this.state.content ? null : <Text style={styles.result}>{this.state.textValue}</Text>}
       </View>
     )
   }
@@ -110,8 +118,27 @@ const styles = StyleSheet.create({
     alignItems: "center",
     backgroundColor: "#333"
   },
+  buttonRow: {
+    flex: 1,
+    flexDirection: 'row',
+    alignItems: "center",
+    position: 'absolute',
+    bottom: 20,
+  },
+  margin10: {
+    flex: 1,
+    margin: 10,
+  },
   title: {
     fontSize: 30,
+    textAlign: "center",
+    margin: 20,
+    color: "#FFF"
+  },
+  result: {
+    position: "absolute",
+    bottom: 250,
+    fontSize: 60,
     textAlign: "center",
     margin: 20,
     color: "#FFF"
