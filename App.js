@@ -7,7 +7,13 @@ import {
   Button,
   TouchableOpacity,
   Image,
+  ImageBackground,
 } from 'react-native'
+
+const rockIcon = require('./img/rockIcon.png')
+const paperIcon = require('./img/paperIcon.png')
+const scissorsIcon = require('./img/scissorsIcon.png')
+var play = require('./img/rockIcon.png')
 
 class App extends Component{
   constructor() {
@@ -26,16 +32,19 @@ class App extends Component{
         this.setState({
           textValue: 'DRAW'
         })
+        play = require('./img/rockIcon.png')
       } else if(opponent == 1){
         //Loss
         this.setState({
           textValue: 'LOSS'
         })
+        play = require('./img/paperIcon.png')
       } else{
         //Win
         this.setState({
           textValue: 'WIN'
         })
+        play = require('./img/scissorsIcon.png')
       }      
     }
     if (which == 1){
@@ -43,17 +52,20 @@ class App extends Component{
         //Draw
         this.setState({
           textValue: 'DRAW'
-        })
+        })        
+        play = require('./img/paperIcon.png')
       } else if(opponent == 2){
         //Loss
         this.setState({
           textValue: 'LOSS'
         })
+        play = require('./img/scissorsIcon.png')
       } else{
         //Win
         this.setState({
           textValue: 'WIN'
         })
+        play = require('./img/rockIcon.png')
       }      
     }
     if (which == 2){
@@ -62,23 +74,27 @@ class App extends Component{
         this.setState({
           textValue: 'DRAW'
         })
+        play = require('./img/scissorsIcon.png')
       } else if(opponent == 0){
         //Loss
         this.setState({
           textValue: 'LOSS'
         })
+        play = require('./img/rockIcon.png')
       } else{
         //Win
         this.setState({
           textValue: 'WIN'
         })
+        play = require('./img/paperIcon.png')
       }      
     }
   }
 
   render(){
     return (
-      <View style={styles.container}>
+      //<View style={styles.container}>
+      <ImageBackground source={require('./img/bg.jpg')} style={styles.container}>
         <Text style={styles.title}>Rock, Paper, Scissors</Text>
         <View style={styles.buttonRow}>
           <View style={styles.margin10}>
@@ -122,7 +138,9 @@ class App extends Component{
           </View>
         </View>
         {this.state.content ? null : <Text style={styles.result}>{this.state.textValue}</Text>}
-      </View>
+        {this.state.textValue ? <Image source={play}/> : null}
+      </ImageBackground>
+      //</View>
     )
   }
 }
