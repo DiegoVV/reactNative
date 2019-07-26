@@ -1,11 +1,13 @@
-import React, {Fragment, Component} from 'react';
+import React, {Component} from 'react'
+
 import {
   StyleSheet,
   View,
   Text,
   Button,
-  Platform,
-} from 'react-native';
+  TouchableOpacity,
+  Image,
+} from 'react-native'
 
 class App extends Component{
   constructor() {
@@ -80,25 +82,43 @@ class App extends Component{
         <Text style={styles.title}>Rock, Paper, Scissors</Text>
         <View style={styles.buttonRow}>
           <View style={styles.margin10}>
-            <Button
+            <TouchableOpacity onPress={() => this.selection(0)} style={styles.button} activeOpacity={0.5}>
+              <Image
+              source={require('./img/rockIcon.png')}
+              style={styles.imageIcon}
+              />
+            </TouchableOpacity>
+            {/*<Button
               onPress={() => this.selection(0)}
               title="Rock"
               color="#505050"
-            />
+            />*/}
           </View>
           <View style={styles.margin10}>
-            <Button
-              onPress={() => this.selection(1)}
+            <TouchableOpacity onPress={() => this.selection(0)} style={styles.button} activeOpacity={0.5}>
+              <Image
+              source={require('./img/paperIcon.png')}
+              style={styles.imageIcon}
+              />
+            </TouchableOpacity>
+            {/*<Button
+              onPress={() => this.selection(0)}
               title="Paper"
               color="#505050"
-            />            
+            />*/}       
           </View>
           <View style={styles.margin10}>
-            <Button
-              onPress={() => this.selection(2)}
+            <TouchableOpacity onPress={() => this.selection(0)} style={styles.button} activeOpacity={0.5}>
+              <Image
+              source={require('./img/scissorsIcon.png')}
+              style={styles.imageIcon}
+              />
+            </TouchableOpacity>
+            {/*<Button
+              onPress={() => this.selection(0)}
               title="Scissors"
               color="#505050"
-            />            
+            />*/}       
           </View>
         </View>
         {this.state.content ? null : <Text style={styles.result}>{this.state.textValue}</Text>}
@@ -143,6 +163,19 @@ const styles = StyleSheet.create({
     margin: 20,
     color: "#FFF"
   },
+  button: {
+    flex: 1,
+    flexDirection: 'row',
+    alignItems: "center",
+    position: 'absolute',
+    bottom: 20,
+  },
+  imageIcon: {
+    flex: 1,
+    width: 100,
+    height: 100,
+    resizeMode: "contain",
+  }
 });
 
 export default App;
