@@ -111,7 +111,7 @@ class App extends Component{
             />*/}
           </View>
           <View style={styles.margin10}>
-            <TouchableOpacity onPress={() => this.selection(0)} style={styles.button} activeOpacity={0.5}>
+            <TouchableOpacity onPress={() => this.selection(1)} style={styles.button} activeOpacity={0.5}>
               <Image
               source={require('./img/paperIcon.png')}
               style={styles.imageIcon}
@@ -124,7 +124,7 @@ class App extends Component{
             />*/}       
           </View>
           <View style={styles.margin10}>
-            <TouchableOpacity onPress={() => this.selection(0)} style={styles.button} activeOpacity={0.5}>
+            <TouchableOpacity onPress={() => this.selection(2)} style={styles.button} activeOpacity={0.5}>
               <Image
               source={require('./img/scissorsIcon.png')}
               style={styles.imageIcon}
